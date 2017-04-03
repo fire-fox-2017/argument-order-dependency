@@ -43,6 +43,5 @@ const cool = new House({
   ,cost: 12345
   ,sold: true
   ,short_sale: true
-  ,has_tenants:false
 })
 console.log(cool.to_s())
