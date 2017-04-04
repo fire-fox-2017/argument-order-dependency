@@ -2,25 +2,52 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(components) {
+    this.address = '';
+    if (components.hasOwnProperty('address')){
+      this.address = components ['address']
+    }
+    this.square_feet = 0;
+    if (components.hasOwnProperty("square_feet")){
+      this.square_feet = components ["square_feet"]
+    }
+    this.num_bedrooms = 3;
+    if (components.hasOwnProperty("num_bedrooms")){
+      this.num_bedroom = components ["num_bedrooms"]
+    }
+    this.num_baths = 2;
+    if (components.hasOwnProperty('num_baths')){
+      this.num_baths = components ["num_baths"]
+    }
+    this.cost = 320000;
+    if (components.hasOwnProperty('cost')){
+      this.cost = components ["cost"]
+    }
+    this.down_payment = 0.20;
+    if (components.hasOwnProperty('down_payment')){
+      this.down_payment = components ["down_payment"]
+    }
+    this.sold = false;
+    if (components.hasOwnProperty('sold')){
+      this.sold = components ['sold']
+    }
+    this.short_sale = "";
+    if (components.hasOwnProperty('short_sale')){
+      this.short_sale = components ['short_sale']
+    }
+    this.has_tenants = false;
+    if (components.hasOwnProperty('has_tenants')){
+      this.has_tenants = components ['has_tenants']
+    }
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****')
   }
 
   buy(money, good_credit) {
     if (money >= down_payment && good_credit) {
-      this.sold = true
+      return this.sold = true
     }
   }
 
@@ -33,6 +60,5 @@ class House {
   }
 }
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
-
+const cool = new House({address: 'addresssssssssssssss', square_feet: 100, num_bedrooms: 2, num_baths: 2, cost: 12345, down_payment: 12345, sold: true, short_sale: true})
 console.log(cool.to_s())
