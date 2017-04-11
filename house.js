@@ -35,7 +35,7 @@ class House {
 
 const cool = new House({address : "Jalan Mawar",
                       square_feet : 100,
-                      num_bedrooms : 2,
+                      num_bedrooms : 3,
                       num_baths : 2,
                       cost : 12345,
                       down_payment : 12345,
